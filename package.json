@@ -2,6 +2,7 @@
   "name": "estrutura-de-api-com-jwt-bcrypt",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {
     "dev": "node --watch src/app/server.js"
   },

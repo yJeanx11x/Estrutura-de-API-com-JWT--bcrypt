@@ -1,6 +1,7 @@
 const express=require('express')
 const appRoutes=express.Router()
-const controllers=require('../controllers/AuthController')
-appRoutes.get('/teste', controllers.teste1 )
+const controllers=require('../controllers/controllersUser')
+
+appRoutes.post('/NewUser',controllers.NewUser)
 
 module.exports=[appRoutes]

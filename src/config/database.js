@@ -8,14 +8,16 @@ const sequelize = new Sequelize(process.env.NOME, process.env.USER, process.env.
 })
 
 
-async function connectDatabase() {
-    try {
-        await sequelize.authenticate()
-        console.log('A conexão foi estabelecida com sucesso.')
-    } catch (error) {
-        console.log('Não foi possível conectar ao banco de dados:', error)
-    }
+sequelize.authenticate().then(() => {
+    console.log('A conexão foi estabelecida com sucesso.')
 }
 
+).catch((error) => {
+    console.error('Erro ao conectar:', error);
+});
 
-module.exports = { connectDatabase,sequelize,Sequelize }
+
+
+
+
+module.exports ={sequelize,Sequelize}

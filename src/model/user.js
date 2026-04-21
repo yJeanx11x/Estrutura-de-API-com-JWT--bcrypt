@@ -1,29 +1,24 @@
-const { sequelize } = require('../config/database')
-const { DataTypes } = require('sequelize')
+const db = require('../config/database')
 
-const User = sequelize.define('User', {
+const User = db.sequelize.define('User', {
   nome: {
-    type: DataTypes.STRING,
+    type: db.Sequelize.STRING,
     allowNull: false,
   },
   email: {
-    type: DataTypes.STRING,
+    type: db.Sequelize.STRING,
     allowNull: false,
     unique: true
   },
   password: {
-    type: DataTypes.STRING,
+    type: db.Sequelize.STRING,
     allowNull: false
-  },
-  UserId:{
-    type:DataTypes.INTEGER,
-    allowNull:false
   }
 })
 
 async function criarTabela() {
   try {
-    await User.sync({ force: true })
+    await User.sync({ alter: true })
     console.log('Tabela Criada com Sucesso')
   } catch (error) {
     console.log('Erro na criação da tabela', error)
@@ -31,4 +26,4 @@ async function criarTabela() {
 }
 
 criarTabela()
-module.exports = User
+module.exports =User 
