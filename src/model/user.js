@@ -31,3 +31,4 @@ async function criarTabela() {
 }
 
 criarTabela()
+module.exports = User
