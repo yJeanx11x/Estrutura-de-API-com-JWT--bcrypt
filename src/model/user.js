@@ -13,7 +13,11 @@ const User = db.sequelize.define('User', {
   password: {
     type: db.Sequelize.STRING,
     allowNull: false
-  }
+  },
+  token: {
+  type:  db.Sequelize.TEXT,
+  allowNull: true
+}
 })
 
 async function criarTabela() {
